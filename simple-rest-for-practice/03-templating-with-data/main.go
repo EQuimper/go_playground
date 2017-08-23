@@ -11,6 +11,10 @@ type person struct {
 	Email     string
 }
 
+// type persons struct {
+// 	persons []person
+// }
+
 var tpl *template.Template
 
 func init() {
@@ -24,6 +28,9 @@ func main() {
 
 func index(w http.ResponseWriter, r *http.Request) {
 	p1 := person{"James", "Bond", "jamesbond@gmail.com"}
+	p2 := person{"Jane", "Doe", "janedoe@gmail.com"}
 
-	tpl.ExecuteTemplate(w, "index.gohtml", p1)
+	p := []persons{p1, p2}
+
+	tpl.ExecuteTemplate(w, "index.gohtml", p)
 }
