@@ -44,6 +44,7 @@ func CreatePerson(w http.ResponseWriter, r *http.Request) {
     var person Person
     _ = json.NewDecoder(r.Body).Decode(&person)
     person.ID = params["id"]
+
     peoples = append(peoples, person)
     json.NewEncoder(w).Encode(person)
 }
